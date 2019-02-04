@@ -38,9 +38,11 @@
     flex-wrap: wrap;
     div.service {
       margin: 40px 10px;
-
+      .flexAlign(space-between);
+      flex-direction: column;
       @media @tablet {
         max-width: 230px;
+        height: 400px;
       }
     }
     img {
@@ -75,12 +77,18 @@
 
   section.outro {
     width: 100%;
+    max-width: 100%;
+    margin: auto;
     background-color: @mainLightBlack;
     color: @mainBG;
     h2,
     button {
       margin-left: 5%;
       margin-right: 5%;
+    }
+    div {
+      max-width: 1000px;
+      margin: 0 auto;
     }
   }
 
