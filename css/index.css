@@ -304,3 +304,43 @@ section {
 .landing section.contact input:focus {
   outline-width: 0;
 }
+.landing section.outro {
+  width: 100%;
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+.landing section.outro h2,
+.landing section.outro button {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.landing footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background-color: #aa9f91;
+  padding: 20px 5%;
+  height: 100vh;
+}
+.landing footer nav {
+  margin-top: 15px;
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 2rem;
+}
+.landing footer nav a {
+  color: #101010;
+  text-decoration: none;
+}
+.landing footer nav a:hover {
+  text-decoration: underline;
+}
+.landing footer p {
+  font-size: 2.5rem;
+}
+.landing footer p.copyright {
+  font-size: 1.2rem;
+}
