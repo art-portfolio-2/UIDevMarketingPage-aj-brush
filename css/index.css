@@ -168,11 +168,9 @@ img {
   height: auto;
 }
 .container {
-  max-width: 1000px;
-  width: 100%;
   margin: 0 auto;
 }
-.container button.CTA {
+button.CTA {
   width: 300px;
   height: 40px;
   border: 3px solid #ffffff;
@@ -183,11 +181,11 @@ img {
   font-size: 1.8rem;
   cursor: pointer;
 }
-.container button.CTA:hover {
+button.CTA:hover {
   background-color: #ffffff;
   color: #101010;
 }
-.container button.CTAInvert {
+button.CTAInvert {
   width: 300px;
   height: 40px;
   border: 3px solid #101010;
@@ -198,23 +196,26 @@ img {
   font-size: 1.8rem;
   cursor: pointer;
 }
-.container button.CTAInvert:hover {
+button.CTAInvert:hover {
   background-color: #101010;
   color: #ffffff;
 }
 section {
   width: 90%;
 }
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   section {
     width: 100%;
   }
 }
-.landing .fixedCTA {
-  display: none;
+@media (min-width: 800px) {
+  section {
+    max-width: 1000px;
+  }
 }
-.landing header {
+header {
   height: 100vh;
+  width: 100%;
   background-color: #d1d1d1;
   min-height: 250px;
   text-align: center;
@@ -223,15 +224,22 @@ section {
   align-items: center;
   flex-direction: column;
 }
-.landing header div {
-  height: 35vh;
-  margin-top: 10%;
+header .fixedCTA {
+  display: none;
+}
+header div,
+header section {
   width: 100%;
+  max-width: 1000px;
+}
+header div {
+  height: 40vh;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.landing header nav {
+header nav {
   width: 50%;
   max-width: 330px;
   margin-left: 10px;
@@ -239,17 +247,23 @@ section {
   justify-content: space-between;
   align-items: center;
 }
-.landing header nav a {
+header nav a {
   text-decoration: none;
   color: #101010;
   font-size: 1.5rem;
 }
-.landing header nav a:hover {
+header nav a:hover {
   text-decoration: underline;
 }
-.landing header p {
+header p {
   width: 90%;
   margin: auto;
+}
+header section.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .landing main {
   display: flex;
@@ -281,15 +295,28 @@ section {
   width: 90%;
   max-width: 400px;
 }
+.landing section.services {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .landing section.services div.service {
-  margin-bottom: 80px;
+  margin: 40px 10px;
+}
+@media (min-width: 600px) {
+  .landing section.services div.service {
+    max-width: 230px;
+  }
 }
 .landing section.services img {
-  width: 25%;
   max-width: 100px;
 }
+.landing section.ourTeam {
+  text-align: center;
+}
 .landing section.ourTeam img {
-  max-width: 400px;
+  max-width: 300px;
 }
 .landing section.contact input {
   height: 40px;

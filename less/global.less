@@ -43,24 +43,23 @@ img {
 }
 
 .container {
-  max-width: 1000px;
-  width: 100%;
   margin: 0 auto;
-
-  button.CTA {
-    .CTA-Btn;
-  }
-  button.CTAInvert {
-    .CTA-Btn(@mainBlack, @mainWhite);
-  }
 }
 // Style call to action buttons
-
+button.CTA {
+  .CTA-Btn;
+}
+button.CTAInvert {
+  .CTA-Btn(@mainBlack, @mainWhite);
+}
 // Give each section the same style
 section {
   width: 90%;
 
   @media @tablet {
     width: 100%;
+  }
+  @media @desktop {
+    max-width: 1000px;
   }
 }
