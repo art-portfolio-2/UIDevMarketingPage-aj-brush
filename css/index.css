@@ -140,7 +140,7 @@ html {
 }
 html,
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 h1,
 h2,
@@ -183,16 +183,54 @@ img {
   display: none;
 }
 .landing header {
+  height: 100vh;
+  background-color: #d1d1d1;
+  min-height: 250px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.landing header div {
+  height: 35vh;
+  margin-top: 10%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 .landing header nav {
   width: 50%;
+  max-width: 330px;
+  margin-left: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .landing header nav a {
   text-decoration: none;
+  color: #101010;
+  font-size: 1.5rem;
+}
+.landing header nav a:hover {
+  text-decoration: underline;
+}
+.landing header p {
+  width: 90%;
+  margin: auto;
+}
+.landing header button {
+  width: 300px;
+  height: 40px;
+  border: 3px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 3px;
+  transition: background-color 0.5s, color 0.5s;
+  font-size: 1.8rem;
+}
+.landing header button:hover {
+  background-color: #ffffff;
+  color: #101010;
 }

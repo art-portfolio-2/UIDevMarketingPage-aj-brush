@@ -3,15 +3,46 @@
     display: none;
   }
   header {
-    .flexAlign(space-between);
+    height: 100vh;
+    background-color: @mainGrey;
+    min-height: 250px;
+    text-align: center;
+    .flexAlign(flex-start);
+    flex-direction: column;
 
+    // div for: NAV elements + Logo
+    div {
+      height: 35vh;
+      margin-top: 10%;
+      // height+margin ~= 50%
+      width: 100%;
+
+      .flexAlign(space-between, baseline);
+    }
     nav {
       width: 50%;
+      max-width: 330px;
+      margin-left: 10px;
       .flexAlign(space-between);
 
       a {
         text-decoration: none;
+        color: @mainFontColor;
+        font-size: 1.5rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
+    }
+
+    p {
+      width: 90%;
+      margin: auto;
+    }
+
+    button {
+      .CTA-Btn();
     }
   }
 } // landing
