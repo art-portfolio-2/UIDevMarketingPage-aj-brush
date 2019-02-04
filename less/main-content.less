@@ -1,0 +1,68 @@
+.landing {
+  main {
+    .flexAlign;
+    // for mobile
+    flex-direction: column;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+  h2 {
+    margin: 50px 0;
+  }
+  h3 {
+    margin: 25px 0;
+  }
+  button {
+    margin-bottom: 50px;
+  }
+
+  // Example images are either 2x2 or 1x4 blocks depending on screen size
+  // Instead of changing flex direction at break points, I'm allowing the
+  // images to wrap within size restrictions so they can correct themselves
+  // as the screen size changes
+  section.exampleIMGs {
+    .flexAlign;
+    width: 90%;
+    flex-wrap: wrap;
+    img {
+      display: block;
+      width: 90%;
+      max-width: 400px;
+      //margin: 10px;
+    }
+  }
+
+  section.services {
+    div.service {
+      margin-bottom: 80px;
+    }
+    img {
+      width: 25%;
+      max-width: 100px;
+    }
+  }
+
+  section.ourTeam {
+    img {
+      max-width: 400px;
+    }
+  }
+
+  section.contact {
+    input {
+      height: 40px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid black;
+      padding-bottom: 15px;
+      margin-bottom: 40px;
+      font-size: 2rem;
+
+      &:hover,
+      &:focus {
+        outline-width: 0;
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
   align-items: @align;
 }
 
-.CTA-Btn(@bgColor:@mainBG, @fontColor:@mainFontColor, @width: 300px, @height: 40px) {
+.CTA-Btn(@bgColor: @mainBG, @fontColor: @mainFontColor, @width: 300px, @height: 40px) {
   width: @width;
   height: @height;
   border: 3px solid @bgColor;
@@ -13,9 +13,10 @@
   border-radius: 3px;
   transition: background-color 0.5s, color 0.5s;
   font-size: 1.8rem;
+  cursor: pointer;
 
   &:hover {
-    background-color: @mainBG;
+    background-color: @bgColor;
     color: @fontColor;
   }
 }
