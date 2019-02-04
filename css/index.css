@@ -302,7 +302,7 @@ header section.intro {
   margin: 40px 10px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 @media (min-width: 600px) {

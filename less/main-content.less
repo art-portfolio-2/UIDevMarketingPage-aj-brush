@@ -36,9 +36,10 @@
   section.services {
     .flexAlign(space-evenly);
     flex-wrap: wrap;
+
     div.service {
       margin: 40px 10px;
-      .flexAlign(space-between);
+      .flexAlign(space-between, flex-start);
       flex-direction: column;
       @media @tablet {
         max-width: 230px;
