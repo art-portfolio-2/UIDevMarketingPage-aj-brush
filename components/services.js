@@ -27,9 +27,9 @@ class CreateServices {
 
     div.appendChild(img);
     div.appendChild(h3);
-    div.appendChild(p);
+    div.appendChild(para);
 
-    div.className = "section";
+    div.className = "service";
 
     return div;
   }
@@ -81,7 +81,7 @@ const json = [
 let services = document.querySelector(".services");
 const servOBJs = json.map(elementsData => new CreateServices(elementsData));
 
-servOBJs.forEach(servOBJ => services.appendChild(servOBJ));
+servOBJs.forEach(servOBJ => services.appendChild(servOBJ.createDomElements()));
 
 /*
 <!-- Repetitive content here will be a component -->
