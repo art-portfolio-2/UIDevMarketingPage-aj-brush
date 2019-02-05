@@ -1,0 +1,87 @@
+header {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  background-image: linear-gradient(#f4ecea, #f3ebe9);
+  //background-size: 100%;
+  min-height: 250px;
+  text-align: center;
+  .flexAlign(flex-start);
+  flex-direction: column;
+
+  .fixedCTA {
+    display: none;
+  }
+  div,
+  section {
+    width: 100%;
+    max-width: 1000px;
+  }
+  // div for: NAV elements + Logo
+  div {
+    height: 27vh;
+    margin-top: 75px;
+
+    .flexAlign(space-between, baseline);
+  }
+  nav {
+    width: 60%;
+    max-width: 330px;
+    margin-left: 6%;
+    .flexAlign(space-between);
+
+    @media (min-width: 1160px) {
+      margin-left: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: @mainFontColor;
+      font-size: 1.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    } // a
+  } // nav
+
+  p {
+    width: 90%;
+    margin: auto;
+  }
+
+  section.intro {
+    .flexAlign;
+    flex-direction: column;
+
+    p {
+      margin-bottom: 8%;
+    }
+  }
+
+  // Background Images
+  img.top_left {
+    position: absolute;
+    width: 12%;
+    left: 0;
+    top: -30px;
+    min-width: 100px;
+    max-width: 300px;
+  }
+  img.bottom_left {
+    position: absolute;
+    width: 30%;
+    max-width: 400px;
+    left: 0;
+    bottom: 0px;
+  }
+  img.right {
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    min-height: 500px;
+  }
+} // header
