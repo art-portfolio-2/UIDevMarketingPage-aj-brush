@@ -19,8 +19,8 @@ buttons.forEach(button => {
 //   // Image = 100vh so window height is image height
 //   const height = window.innerHeight;
 //   const windowWidth = window.innerWidth;
-//   // Image Size: 3574h x 4000w   w/h => 1.12
-//   const conversion = 4000 / 3574;
+//   // Image Size: 3574w x 4000h   w/h => 0.8935
+//   const conversion = 3574 / 4000;
 //
 //   // Calculate image width based on screen height
 //   const width = height * conversion;

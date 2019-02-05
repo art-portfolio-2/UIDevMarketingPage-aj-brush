@@ -1,3 +1,8 @@
+@imgTR: ~"(max-width: 615px)";
+@p_img_overlap: ~"(min-width: 615px)";
+@navTL: ~"(min-width: 1230px)";
+@imgBRMed: ~"(max-width: 745px)";
+@imgBRSm: @imgTR;
 header {
   height: 100vh;
   width: 100%;
@@ -5,25 +10,40 @@ header {
   overflow: hidden;
   min-height: 500px;
   background-image: linear-gradient(#f4ecea, #f3ebe9);
-  //background-size: 100%;
-  min-height: 250px;
   text-align: center;
   .flexAlign(flex-start);
   flex-direction: column;
 
-  .fixedCTA {
-    display: none;
+  // Put content elements above images
+  h1,
+  nav,
+  a,
+  p,
+  button {
+    z-index: 1;
+  }
+  // Move header over to prevent image overlap
+  h1 {
+    margin-right: 14%;
+
+    // When img disappears, margin is no longer needed
+    @media @imgTR {
+      margin-right: 0;
+    }
   }
   div,
   section {
     width: 100%;
     max-width: 1000px;
   }
+  // Allow minimum margins instead of using a percent on <p>
+  div.buffer {
+    height: 25vh;
+    min-height: 75px;
+  }
   // div for: NAV elements + Logo
-  div {
-    height: 27vh;
-    margin-top: 75px;
-
+  div.headerInfo {
+    margin-top: 60px;
     .flexAlign(space-between, baseline);
   }
   nav {
@@ -32,7 +52,7 @@ header {
     margin-left: 6%;
     .flexAlign(space-between);
 
-    @media (min-width: 1160px) {
+    @media @navTL {
       margin-left: 0;
     }
 
@@ -46,19 +66,20 @@ header {
       }
     } // a
   } // nav
-
+  // Opening text takes up most of the screen
   p {
     width: 90%;
     margin: auto;
+    margin-bottom: 3%;
+    // Except at large screen sizes so it doesn't overlap with the images
+    @media @p_img_overlap {
+      width: 60%;
+    }
   }
 
   section.intro {
     .flexAlign;
     flex-direction: column;
-
-    p {
-      margin-bottom: 8%;
-    }
   }
 
   // Background Images
@@ -77,12 +98,41 @@ header {
     left: 0;
     bottom: 0px;
   }
-  img.right {
+  img.top_right {
     position: absolute;
-    height: 100vh;
     top: 0;
     right: 0;
-    min-height: 500px;
-    z-index: -1;
+    width: 20%;
+    min-width: 150px;
+    max-width: 300px;
+
+    @media @imgTR {
+      display: none;
+    }
+  }
+  img.bottom_right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    min-width: 450px;
+    max-width: 700px;
+
+    // Handle bottom right image at small screen heights
+    @media (max-height: 600px) {
+      @media @imgBRMed {
+        bottom: -75px;
+      }
+      @media @imgBRSm {
+        bottom: -170px;
+      }
+    }
+
+    // Handle bottom right image at medium screen heights
+    @media (min-height: 616px) and (max-height: 800px) {
+      @media (max-width: 615px) {
+        bottom: -90px;
+      }
+    }
   }
 } // header
