@@ -296,6 +296,7 @@ header img.right {
   top: 0;
   right: 0;
   min-height: 500px;
+  z-index: -1;
 }
 .landing main {
   display: flex;
