@@ -212,6 +212,142 @@ section {
     max-width: 1000px;
   }
 }
+.landing main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.landing section {
+  margin-bottom: 40px;
+}
+.landing h2 {
+  margin: 50px 0;
+}
+.landing h3 {
+  margin: 25px 0;
+}
+.landing button {
+  margin-bottom: 50px;
+}
+.landing section.exampleIMGs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  flex-wrap: wrap;
+}
+.landing section.exampleIMGs img {
+  display: block;
+  width: 90%;
+  max-width: 400px;
+}
+.landing img {
+  max-width: 100px;
+}
+.landing section.contact input {
+  height: 40px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 15px;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+.landing section.contact input:hover,
+.landing section.contact input:focus {
+  outline-width: 0;
+}
+header div.ddContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+header div.menuEnd {
+  width: 100%;
+  max-width: 23.338px;
+  height: 23.338px;
+  background-color: #101010;
+  opacity: 0;
+  transform: rotate(45deg) translate(-8px, 8px);
+  visibility: hidden;
+  transition: 0.4s ease-in;
+}
+header div.menuEnd.clicked {
+  opacity: 100;
+  visibility: visible;
+}
+header div.dropdown {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  min-width: 300px;
+  transition: 0.4s ease-in;
+  background-color: transparent;
+}
+header .clicked.dropdown {
+  background-color: #101010;
+}
+header .menuBars {
+  width: 55px;
+  display: inline-block;
+  margin-left: 21px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.4s ease-in;
+}
+header .topBar,
+header .botBar,
+header .midBar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s ease-in;
+  overflow: visible;
+}
+header .clicked .topBar {
+  -webkit-transform: rotate(45deg) translate(7px, 5px);
+  transform: rotate(45deg) translate(7px, 5px);
+  background-color: #ffffff;
+}
+header .clicked .midBar {
+  transform: translate(-15px, 0);
+  opacity: 0;
+}
+header .clicked .botBar {
+  -webkit-transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(7px, -6px);
+  background-color: #ffffff;
+}
+header nav {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  max-width: 330px;
+  margin-left: 6%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (min-width: 1230px) {
+  header nav {
+    margin-left: 0;
+  }
+}
+header nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+header nav.clicked {
+  visibility: visible;
+  opacity: 100;
+}
 header {
   height: 100vh;
   width: 100%;
@@ -316,133 +452,13 @@ header img.bottom_right {
   min-width: 450px;
   max-width: 700px;
 }
-header div.ddContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-header div.menuEnd {
-  width: 100%;
-  max-width: 23.338px;
-  height: 23.338px;
-  background-color: #101010;
-  opacity: 0;
-  transform: rotate(45deg) translate(-8px, 8px);
-  visibility: hidden;
-  transition: 0.4s ease-in;
-}
-header div.menuEnd.clicked {
-  opacity: 100;
-  visibility: visible;
-}
-header div.dropdown {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 30%;
-  min-width: 300px;
-  transition: 0.4s ease-in;
-  background-color: transparent;
-}
-header .clicked.dropdown {
-  background-color: #101010;
-}
-header .menuBars {
-  width: 55px;
-  display: inline-block;
-  margin-left: 21px;
-  cursor: pointer;
-  background-color: transparent;
-  transition: 0.4s ease-in;
-}
-header .topBar,
-header .botBar,
-header .midBar {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 6px 0;
-  transition: 0.4s ease-in;
-  overflow: visible;
-}
-header .clicked .topBar {
-  -webkit-transform: rotate(45deg) translate(7px, 5px);
-  transform: rotate(45deg) translate(7px, 5px);
-  background-color: #ffffff;
-}
-header .clicked .midBar {
-  transform: translate(-15px, 0);
-  opacity: 0;
-}
-header .clicked .botBar {
-  -webkit-transform: rotate(-45deg) translate(7px, -6px);
-  transform: rotate(-45deg) translate(7px, -6px);
-  background-color: #ffffff;
-}
-header nav {
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
-  max-width: 330px;
-  margin-left: 6%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-@media (min-width: 1230px) {
-  header nav {
-    margin-left: 0;
-  }
-}
-header nav a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.5rem;
-}
-header nav a:hover {
-  text-decoration: underline;
-}
-header nav.clicked {
-  visibility: visible;
-  opacity: 100;
-}
-.landing main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.landing section {
-  margin-bottom: 40px;
-}
-.landing h2 {
-  margin: 50px 0;
-}
-.landing h3 {
-  margin: 25px 0;
-}
-.landing button {
-  margin-bottom: 50px;
-}
-.landing section.exampleIMGs {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  flex-wrap: wrap;
-}
-.landing section.exampleIMGs img {
-  display: block;
-  width: 90%;
-  max-width: 400px;
-}
-.landing section.services {
+.landing main section.services {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
-.landing section.services div.service {
+.landing main section.services div.service {
   margin: 40px 10px;
   display: flex;
   justify-content: space-between;
@@ -450,34 +466,31 @@ header nav.clicked {
   flex-direction: column;
 }
 @media (min-width: 600px) {
-  .landing section.services div.service {
+  .landing main section.services div.service {
     max-width: 230px;
     height: 400px;
   }
 }
 @media (min-width: 800px) {
-  .landing section.services div.service {
+  .landing main section.services div.service {
     margin: 30px 5px 0 5px;
   }
 }
-.landing section.services img {
-  max-width: 100px;
-}
-.landing section.ourTeam .teamContainer {
+.landing main section.ourTeam .teamContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.landing section.ourTeam .teamContainer div.teamMember {
+.landing main section.ourTeam .teamContainer div.teamMember {
   position: relative;
   overflow: auto;
   max-width: 300px;
   width: 100%;
   min-height: 300px;
 }
-.landing section.ourTeam .teamContainer div.teamMember div,
-.landing section.ourTeam .teamContainer div.teamMember img {
+.landing main section.ourTeam .teamContainer div.teamMember div,
+.landing main section.ourTeam .teamContainer div.teamMember img {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -485,7 +498,7 @@ header nav.clicked {
   opacity: 100;
   transition: 0.5s;
 }
-.landing section.ourTeam .teamContainer div.teamMember div {
+.landing main section.ourTeam .teamContainer div.teamMember div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -495,79 +508,25 @@ header nav.clicked {
   opacity: 0;
   visibility: hidden;
 }
-.landing section.ourTeam .teamContainer div.teamMember div a {
+.landing main section.ourTeam .teamContainer div.teamMember div a {
   color: #ffffff;
 }
-.landing section.ourTeam .teamContainer div.teamMember div p.teamName {
+.landing main section.ourTeam .teamContainer div.teamMember div p.teamName {
   padding: 0;
   margin: 0;
 }
-.landing section.ourTeam .teamContainer div.teamMember:hover img {
+.landing main section.ourTeam .teamContainer div.teamMember:hover img {
   visibility: hidden;
   opacity: 0;
 }
-.landing section.ourTeam .teamContainer div.teamMember:hover div {
+.landing main section.ourTeam .teamContainer div.teamMember:hover div {
   visibility: visible;
   opacity: 100;
 }
-.landing section.contact input {
-  height: 40px;
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid black;
-  padding-bottom: 15px;
-  margin-bottom: 40px;
-  font-size: 2rem;
-}
-.landing section.contact input:hover,
-.landing section.contact input:focus {
-  outline-width: 0;
-}
-.landing section.outro {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  background-color: #1d1d1d;
-  color: #ffffff;
-}
-.landing section.outro h2,
-.landing section.outro button {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-@media (min-width: 800px) {
-  .landing section.outro h2,
-  .landing section.outro button {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-}
-@media (min-width: 1100px) {
-  .landing section.outro h2,
-  .landing section.outro button {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-.landing section.outro div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  max-width: 1000px;
-  min-height: 200px;
-  margin: 0 auto;
-}
-@media (min-width: 800px) {
-  .landing section.outro div {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-}
-.landing footer {
+footer {
   background-color: #aa9f91;
 }
-.landing footer section {
+footer section {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -577,11 +536,11 @@ header nav.clicked {
   height: 100vh;
 }
 @media (min-width: 800px) {
-  .landing footer section {
+  footer section {
     padding: 20px 0;
   }
 }
-.landing footer section nav {
+footer section nav {
   margin-top: 15px;
   width: 95%;
   display: flex;
@@ -589,16 +548,16 @@ header nav.clicked {
   align-items: flex-start;
   font-size: 2rem;
 }
-.landing footer section nav a {
+footer section nav a {
   color: #101010;
   text-decoration: none;
 }
-.landing footer section nav a:hover {
+footer section nav a:hover {
   text-decoration: underline;
 }
-.landing footer section p {
+footer section p {
   font-size: 2.5rem;
 }
-.landing footer section p.copyright {
+footer section p.copyright {
   font-size: 1.2rem;
 }

@@ -1,0 +1,21 @@
+.landing main {
+  section.services {
+    .flexAlign(space-evenly);
+    flex-wrap: wrap;
+
+    div.service {
+      margin: 40px 10px;
+      .flexAlign(space-between, flex-start);
+      flex-direction: column;
+
+      @media @tablet {
+        max-width: 230px;
+        height: 400px;
+      }
+
+      @media @desktop {
+        margin: 30px 5px 0 5px;
+      }
+    } // service
+  } // section.services
+} // container

@@ -1,4 +1,6 @@
 @tranTime: 0.4s ease-in;
+@navTL: ~"(min-width: 1230px)";
+
 header {
   div.ddContainer {
     .flexAlign(flex-start);
@@ -13,6 +15,7 @@ header {
     visibility: hidden;
     transition: @tranTime;
   }
+
   div.menuEnd.clicked {
     opacity: 100;
     visibility: visible;
