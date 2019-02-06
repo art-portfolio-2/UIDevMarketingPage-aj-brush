@@ -4,9 +4,17 @@
   <head>
     <title>artFolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- JavaScript Components -->
     <script src="./components/navigation.js" defer></script>
     <script src="./components/services.js" defer></script>
-    <script src="./buttons.js" defer></script>
+    <script src="./components/teamMO.js" defer></script>
+
+    <!-- JavaScript Scripts -->
+    <script src="./js/buttons.js" defer></script>
+    <script src="./js/animateMenuClick.js" defer></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
   </head>
   <body>
@@ -14,7 +22,17 @@
       <!-- Header info:  nav links, start now button -->
       <header>
         <div class="headerInfo">
-          <nav></nav>
+          <div class="ddContainer">
+            <div class="dropdown">
+              <div class="menuBars">
+                <div class="topBar"></div>
+                <div class="midBar"></div>
+                <div class="botBar"></div>
+              </div>
+              <nav></nav>
+            </div>
+            <div class="menuEnd"></div>
+          </div>
           <h1>artFolio</h1>
         </div>
         <div class="buffer"></div>
@@ -95,12 +113,7 @@
         <!-- Showcase the build team -->
         <section class="ourTeam">
           <h2>meet our team</h2>
-          <img src="https://i.imgur.com/c08ygf4.png" alt="Andrew Brush" />
-          <img src="https://i.imgur.com/oZJwcPM.png" alt="Ilya Yelizarov" />
-          <img src="https://i.imgur.com/TI3sgCQ.png" alt="Jon Palacio" />
-          <img src="https://i.imgur.com/tGRSl0Y.png" alt="Csilla Gates" />
-          <img src="https://i.imgur.com/lCCytdU.png" alt="Elisha Atulomah" />
-          <img src="https://i.imgur.com/jqvbxYA.png" alt="Javontay McElroy" />
+          <div class="teamContainer"></div>
         </section>
 
         <!-- Contact Form -->

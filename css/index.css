@@ -255,27 +255,6 @@ header div.headerInfo {
   justify-content: space-between;
   align-items: baseline;
 }
-header nav {
-  width: 60%;
-  max-width: 330px;
-  margin-left: 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@media (min-width: 1230px) {
-  header nav {
-    margin-left: 0;
-  }
-}
-header nav a {
-  text-decoration: none;
-  color: #101010;
-  font-size: 1.5rem;
-}
-header nav a:hover {
-  text-decoration: underline;
-}
 header p {
   width: 100%;
   margin: auto;
@@ -337,6 +316,96 @@ header img.bottom_right {
   min-width: 450px;
   max-width: 700px;
 }
+header div.ddContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+header div.menuEnd {
+  width: 100%;
+  max-width: 23.338px;
+  height: 23.338px;
+  background-color: #101010;
+  opacity: 0;
+  transform: rotate(45deg) translate(-8px, 8px);
+  visibility: hidden;
+  transition: 0.4s ease-in;
+}
+header div.menuEnd.clicked {
+  opacity: 100;
+  visibility: visible;
+}
+header div.dropdown {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  min-width: 300px;
+  transition: 0.4s ease-in;
+  background-color: transparent;
+}
+header .clicked.dropdown {
+  background-color: #101010;
+}
+header .menuBars {
+  width: 55px;
+  display: inline-block;
+  margin-left: 21px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.4s ease-in;
+}
+header .topBar,
+header .botBar,
+header .midBar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s ease-in;
+  overflow: visible;
+}
+header .clicked .topBar {
+  -webkit-transform: rotate(45deg) translate(7px, 5px);
+  transform: rotate(45deg) translate(7px, 5px);
+  background-color: #ffffff;
+}
+header .clicked .midBar {
+  transform: translate(-15px, 0);
+  opacity: 0;
+}
+header .clicked .botBar {
+  -webkit-transform: rotate(-45deg) translate(7px, -6px);
+  transform: rotate(-45deg) translate(7px, -6px);
+  background-color: #ffffff;
+}
+header nav {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  max-width: 330px;
+  margin-left: 6%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media (min-width: 1230px) {
+  header nav {
+    margin-left: 0;
+  }
+}
+header nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+header nav.clicked {
+  visibility: visible;
+  opacity: 100;
+}
 .landing main {
   display: flex;
   justify-content: center;
@@ -394,11 +463,52 @@ header img.bottom_right {
 .landing section.services img {
   max-width: 100px;
 }
-.landing section.ourTeam {
-  text-align: center;
+.landing section.ourTeam .teamContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.landing section.ourTeam img {
+.landing section.ourTeam .teamContainer div.teamMember {
+  position: relative;
+  overflow: auto;
   max-width: 300px;
+  width: 100%;
+  min-height: 300px;
+}
+.landing section.ourTeam .teamContainer div.teamMember div,
+.landing section.ourTeam .teamContainer div.teamMember img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  visibility: visible;
+  opacity: 100;
+  transition: 0.5s;
+}
+.landing section.ourTeam .teamContainer div.teamMember div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #ffffff;
+  background-color: #101010;
+  opacity: 0;
+  visibility: hidden;
+}
+.landing section.ourTeam .teamContainer div.teamMember div a {
+  color: #ffffff;
+}
+.landing section.ourTeam .teamContainer div.teamMember div p.teamName {
+  padding: 0;
+  margin: 0;
+}
+.landing section.ourTeam .teamContainer div.teamMember:hover img {
+  visibility: hidden;
+  opacity: 0;
+}
+.landing section.ourTeam .teamContainer div.teamMember:hover div {
+  visibility: visible;
+  opacity: 100;
 }
 .landing section.contact input {
   height: 40px;

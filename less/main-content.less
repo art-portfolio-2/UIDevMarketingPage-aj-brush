@@ -60,11 +60,60 @@
   } // services
 
   section.ourTeam {
-    text-align: center;
-    img {
-      max-width: 300px;
-    }
-  }
+    .teamContainer {
+      .flexAlign;
+      flex-wrap: wrap;
+
+      // Mouseover info for team members
+      div.teamMember {
+        position: relative;
+        overflow: auto;
+        max-width: 300px;
+        width: 100%;
+        min-height: 300px;
+
+        // Shared style between the two overlapping elements
+        div,
+        img {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          visibility: visible;
+          opacity: 100;
+          transition: 0.5s;
+        }
+
+        // DIV with team member info
+        div {
+          .flexAlign;
+          flex-direction: column;
+          color: @mainWhite;
+          background-color: @mainBlack;
+          opacity: 0;
+          visibility: hidden;
+
+          a {
+            color: @mainWhite;
+          }
+
+          p.teamName {
+            padding: 0;
+            margin: 0;
+          } // p
+        } // info DIV
+      } // div.teamMember
+      div.teamMember:hover {
+        img {
+          visibility: hidden;
+          opacity: 0;
+        }
+        div {
+          visibility: visible;
+          opacity: 100;
+        }
+      } // div.teamMember:hover
+    } // .teamContainer
+  } // section.ourTeam
 
   section.contact {
     input {

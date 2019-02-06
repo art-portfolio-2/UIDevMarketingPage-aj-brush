@@ -16,9 +16,8 @@ class CreateNavLink {
 }
 const navJSON = [
   { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false }
+  { href: "#", textNode: "Our Team", target: false },
+  { href: "#", textNode: "Contact", target: false }
 ];
 
 const navElements = document.querySelectorAll("nav");

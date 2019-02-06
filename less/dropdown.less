@@ -1,0 +1,113 @@
+@tranTime: 0.4s ease-in;
+header {
+  div.ddContainer {
+    .flexAlign(flex-start);
+  }
+  div.menuEnd {
+    width: 100%;
+    max-width: 23.338px;
+    height: 23.338px;
+    background-color: @mainBlack;
+    opacity: 0;
+    transform: rotate(45deg) translate(-8px, 8px);
+    visibility: hidden;
+    transition: @tranTime;
+  }
+  div.menuEnd.clicked {
+    opacity: 100;
+    visibility: visible;
+  }
+  div.dropdown {
+    .flexAlign(flex-start);
+    width: 30%;
+    min-width: 300px;
+    transition: @tranTime;
+    background-color: transparent;
+  }
+  .clicked.dropdown {
+    background-color: @mainBlack;
+  }
+
+  .menuBars {
+    width: 55px;
+    display: inline-block;
+    margin-left: 21px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: @tranTime;
+  }
+
+  .topBar,
+  .botBar,
+  .midBar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: @tranTime;
+    overflow: visible;
+  }
+
+  .clicked .topBar {
+    -webkit-transform: rotate(45deg) translate(7px, 5px);
+    transform: rotate(45deg) translate(7px, 5px);
+    background-color: @mainWhite;
+  }
+
+  .clicked .midBar {
+    transform: translate(-15px, 0);
+    opacity: 0;
+  }
+
+  .clicked .botBar {
+    -webkit-transform: rotate(-45deg) translate(7px, -6px);
+    transform: rotate(-45deg) translate(7px, -6px);
+    background-color: @mainWhite;
+  }
+
+  nav {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    max-width: 330px;
+    margin-left: 6%;
+    .flexAlign(space-around);
+
+    @media @navTL {
+      margin-left: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: @mainWhite;
+      font-size: 1.5rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    } // a
+  } // nav
+
+  nav.clicked {
+    visibility: visible;
+    opacity: 100;
+  }
+} // header
+
+// Turn hamburger into an arrow
+// .clicked .topBar {
+//   -webkit-transform: rotate(45deg) translate(-6px, 5px);
+//   transform: rotate(45deg) translate(-6px, 5px);
+// }
+//
+
+// .clicked .midBar {
+//   -webkit-transform: translate(-27px, 0px);
+//   transform: scaleX(1.5) translate(-27px, 0px);
+// }
+//
+
+// .clicked .botBar {
+//   -webkit-transform: rotate(-45deg) translate(-6px, -5px);
+//   transform: rotate(-45deg) translate(-6px, -5px);
+// }
