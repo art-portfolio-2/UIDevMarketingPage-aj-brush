@@ -17,10 +17,14 @@ header {
   // Put content elements above images
   h1,
   nav,
+  section,
   a,
   p,
   button {
     z-index: 1;
+  }
+  button.CTAInvert {
+    margin-bottom: 0;
   }
   // Move header over to prevent image overlap
   h1 {
@@ -35,11 +39,6 @@ header {
   section {
     width: 100%;
     max-width: 1000px;
-  }
-  // Allow minimum margins instead of using a percent on <p>
-  div.buffer {
-    height: 25vh;
-    min-height: 75px;
   }
   // div for: NAV elements + Logo
   div.headerInfo {
@@ -68,18 +67,35 @@ header {
   } // nav
   // Opening text takes up most of the screen
   p {
-    width: 90%;
+    width: 100%;
     margin: auto;
     margin-bottom: 3%;
-    // Except at large screen sizes so it doesn't overlap with the images
-    @media @p_img_overlap {
-      width: 60%;
-    }
-  }
+    padding-bottom: 0;
 
+    // Except at large screen sizes so it doesn't overlap with the images
+    // @media @p_img_overlap {
+    //   width: 60%;
+    // }
+  }
+  // Allow minimum margins instead of using a percent on <p>
+  div.buffer {
+    height: 17vh;
+    min-height: 50px;
+  }
+  // Intro card info
   section.intro {
+    background-color: rgba(240, 240, 240, 0.8);
+    width: 85%;
+    padding: 6% 10%;
+    border: 1px solid black;
+    border-radius: 10px;
     .flexAlign;
     flex-direction: column;
+    min-height: 350px;
+
+    h2 {
+      margin: 0 0 30px;
+    }
   }
 
   // Background Images
@@ -119,20 +135,20 @@ header {
     max-width: 700px;
 
     // Handle bottom right image at small screen heights
-    @media (max-height: 600px) {
-      @media @imgBRMed {
-        bottom: -75px;
-      }
-      @media @imgBRSm {
-        bottom: -170px;
-      }
-    }
+    // @media (max-height: 600px) {
+    //   @media @imgBRMed {
+    //     bottom: -75px;
+    //   }
+    //   @media @imgBRSm {
+    //     bottom: -170px;
+    //   }
+    // }
 
     // Handle bottom right image at medium screen heights
-    @media (min-height: 616px) and (max-height: 800px) {
-      @media (max-width: 615px) {
-        bottom: -90px;
-      }
-    }
+    // @media (min-height: 616px) and (max-height: 800px) {
+    //   @media (max-width: 615px) {
+    //     bottom: -90px;
+    //   }
+    // }
   }
 } // header
