@@ -219,24 +219,38 @@ header {
   overflow: hidden;
   min-height: 500px;
   background-image: linear-gradient(#f4ecea, #f3ebe9);
-  min-height: 250px;
   text-align: center;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
-header .fixedCTA {
-  display: none;
+header h1,
+header nav,
+header section,
+header a,
+header p,
+header button {
+  z-index: 1;
+}
+header button.CTAInvert {
+  margin-bottom: 0;
+}
+header h1 {
+  margin-right: 14%;
+}
+@media (max-width: 615px) {
+  header h1 {
+    margin-right: 0;
+  }
 }
 header div,
 header section {
   width: 100%;
   max-width: 1000px;
 }
-header div {
-  height: 27vh;
-  margin-top: 75px;
+header div.headerInfo {
+  margin-top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -249,7 +263,7 @@ header nav {
   justify-content: space-between;
   align-items: center;
 }
-@media (min-width: 1160px) {
+@media (min-width: 1230px) {
   header nav {
     margin-left: 0;
   }
@@ -263,17 +277,29 @@ header nav a:hover {
   text-decoration: underline;
 }
 header p {
-  width: 90%;
+  width: 100%;
   margin: auto;
+  margin-bottom: 3%;
+  padding-bottom: 0;
+}
+header div.buffer {
+  height: 17vh;
+  min-height: 50px;
 }
 header section.intro {
+  background-color: rgba(240, 240, 240, 0.8);
+  width: 85%;
+  padding: 6% 10%;
+  border: 1px solid black;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 350px;
 }
-header section.intro p {
-  margin-bottom: 8%;
+header section.intro h2 {
+  margin: 0 0 30px;
 }
 header img.top_left {
   position: absolute;
@@ -290,12 +316,26 @@ header img.bottom_left {
   left: 0;
   bottom: 0px;
 }
-header img.right {
+header img.top_right {
   position: absolute;
-  height: 100vh;
   top: 0;
   right: 0;
-  min-height: 500px;
+  width: 20%;
+  min-width: 150px;
+  max-width: 300px;
+}
+@media (max-width: 615px) {
+  header img.top_right {
+    display: none;
+  }
+}
+header img.bottom_right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  min-width: 450px;
+  max-width: 700px;
 }
 .landing main {
   display: flex;
