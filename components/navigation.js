@@ -30,6 +30,7 @@ const navLinks = navJSON.map(elementData => new CreateNavLink(elementData));
 
 navElements.forEach(element =>
   navLinks.forEach((link, i) => {
+    // If the links are at the top of the page, skip "home"
     if (
       (element.parentNode.classList.contains("dropdown") && i !== 0) ||
       !element.parentNode.classList.contains("dropdown")
