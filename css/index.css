@@ -227,6 +227,13 @@ section {
 .landing button {
   margin-bottom: 50px;
 }
+.landing img.toTop {
+  position: fixed;
+  z-index: 4;
+  bottom: 15px;
+  right: 15px;
+  width: 30px;
+}
 .landing section.exampleIMGs {
   display: flex;
   justify-content: center;
