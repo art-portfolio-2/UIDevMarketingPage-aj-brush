@@ -2,98 +2,99 @@
 @navTL: ~"(min-width: 1230px)";
 
 header {
-  div.ddContainer {
-    .flexAlign(flex-start);
-  }
-  div.menuEnd {
-    width: 100%;
-    max-width: 23.338px;
-    height: 23.338px;
-    background-color: @mainBlack;
-    opacity: 0;
-    transform: rotate(45deg) translate(-8px, 8px);
-    visibility: hidden;
-    transition: @tranTime;
-  }
-
-  div.menuEnd.clicked {
-    opacity: 100;
-    visibility: visible;
-  }
-  div.dropdown {
-    .flexAlign(flex-start);
-    width: 30%;
-    min-width: 300px;
-    transition: @tranTime;
-    background-color: transparent;
-  }
-  .clicked.dropdown {
-    background-color: @mainBlack;
-  }
-
-  .menuBars {
+  // Animate
+  div.menuBars {
     width: 55px;
     display: inline-block;
     margin-left: 21px;
     cursor: pointer;
     background-color: transparent;
     transition: @tranTime;
-  }
+    position: fixed;
+    left: 15px;
+    top: 60px;
 
-  .topBar,
-  .botBar,
-  .midBar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: @tranTime;
-    overflow: visible;
-  }
+    z-index: 2;
 
-  .clicked .topBar {
-    -webkit-transform: rotate(45deg) translate(7px, 5px);
-    transform: rotate(45deg) translate(7px, 5px);
-    background-color: @mainWhite;
-  }
-
-  .clicked .midBar {
-    transform: translate(-15px, 0);
-    opacity: 0;
-  }
-
-  .clicked .botBar {
-    -webkit-transform: rotate(-45deg) translate(7px, -6px);
-    transform: rotate(-45deg) translate(7px, -6px);
-    background-color: @mainWhite;
-  }
-
-  nav {
-    opacity: 0;
-    visibility: hidden;
-    width: 100%;
-    max-width: 330px;
-    margin-left: 6%;
-    .flexAlign(space-around);
-
-    @media @navTL {
-      margin-left: 0;
+    .topBar,
+    .botBar,
+    .midBar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: @tranTime;
+      overflow: visible;
+      z-index: 1;
     }
+  } // div.menuBars
+  div.menuBars.clicked {
+    .topBar {
+      -webkit-transform: rotate(45deg) translate(7px, 5px);
+      transform: rotate(45deg) translate(7px, 5px);
+      background-color: @mainWhite;
+    }
+    .midBar {
+      transform: translate(-15px, 0);
+      opacity: 0;
+    }
+    .botBar {
+      -webkit-transform: rotate(-45deg) translate(7px, -6px);
+      transform: rotate(-45deg) translate(7px, -6px);
+      background-color: @mainWhite;
+    }
+  }
+  div.ddContainer {
+    //.flexAlign(flex-start);
+    position: fixed;
+    left: 0;
+    top: 60px;
 
-    a {
-      text-decoration: none;
-      color: @mainWhite;
-      font-size: 1.5rem;
+    div.dropdown {
+      .flexAlign(center);
+      width: 100%;
+      // min-width: 300px;  Move to higher res
+      transition: @tranTime;
+      background-color: transparent;
 
-      &:hover {
-        text-decoration: underline;
+      nav {
+        .flexAlign(space-around);
+        visibility: hidden;
+        width: 75%;
+        max-width: 400px;
+        min-height: 33px;
+        transition: 0.5s;
+
+        @media @navTL {
+          margin-left: 0;
+        }
+
+        a {
+          text-decoration: none;
+          color: @mainWhite;
+          font-size: 1.5rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        } // a
+      } // nav
+      nav.clicked {
+        visibility: visible;
+        opacity: 100;
       }
-    } // a
-  } // nav
-
-  nav.clicked {
-    visibility: visible;
-    opacity: 100;
+      nav.unclicked {
+        visibility: hidden;
+        opacity: 0;
+      }
+    } // div.dropdown
+  } // div.ddContainer
+  div.ddContainer.clicked {
+    .animateMenu(menuSlide);
+  }
+  // .animateMenu(@name, @startOpacity: 0, @endOpacity: 100, @startX: -40px, @endX: 0px, @bgStart: transparent, @bgEnd:@mainBlack)
+  div.ddContainer.unclicked {
+    .animateMenu(menuSlideOut, 100, 0, 0px, -40px, @mainBlack, transparent);
   }
 } // header
 

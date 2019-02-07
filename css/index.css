@@ -242,9 +242,6 @@ section {
   width: 90%;
   max-width: 400px;
 }
-.landing img {
-  max-width: 100px;
-}
 .landing section.contact input {
   height: 40px;
   width: 100%;
@@ -258,95 +255,120 @@ section {
 .landing section.contact input:focus {
   outline-width: 0;
 }
-header div.ddContainer {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-header div.menuEnd {
-  width: 100%;
-  max-width: 23.338px;
-  height: 23.338px;
-  background-color: #101010;
-  opacity: 0;
-  transform: rotate(45deg) translate(-8px, 8px);
-  visibility: hidden;
-  transition: 0.4s ease-in;
-}
-header div.menuEnd.clicked {
-  opacity: 100;
-  visibility: visible;
-}
-header div.dropdown {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 30%;
-  min-width: 300px;
-  transition: 0.4s ease-in;
-  background-color: transparent;
-}
-header .clicked.dropdown {
-  background-color: #101010;
-}
-header .menuBars {
+header div.menuBars {
   width: 55px;
   display: inline-block;
   margin-left: 21px;
   cursor: pointer;
   background-color: transparent;
   transition: 0.4s ease-in;
+  position: fixed;
+  left: 15px;
+  top: 60px;
+  z-index: 2;
 }
-header .topBar,
-header .botBar,
-header .midBar {
+header div.menuBars .topBar,
+header div.menuBars .botBar,
+header div.menuBars .midBar {
   width: 25px;
   height: 3px;
   background-color: #333;
   margin: 6px 0;
   transition: 0.4s ease-in;
   overflow: visible;
+  z-index: 1;
 }
-header .clicked .topBar {
+header div.menuBars.clicked .topBar {
   -webkit-transform: rotate(45deg) translate(7px, 5px);
   transform: rotate(45deg) translate(7px, 5px);
   background-color: #ffffff;
 }
-header .clicked .midBar {
+header div.menuBars.clicked .midBar {
   transform: translate(-15px, 0);
   opacity: 0;
 }
-header .clicked .botBar {
+header div.menuBars.clicked .botBar {
   -webkit-transform: rotate(-45deg) translate(7px, -6px);
   transform: rotate(-45deg) translate(7px, -6px);
   background-color: #ffffff;
 }
-header nav {
-  opacity: 0;
-  visibility: hidden;
+header div.ddContainer {
+  position: fixed;
+  left: 0;
+  top: 60px;
+}
+header div.ddContainer div.dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 330px;
-  margin-left: 6%;
+  transition: 0.4s ease-in;
+  background-color: transparent;
+}
+header div.ddContainer div.dropdown nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  visibility: hidden;
+  width: 75%;
+  max-width: 400px;
+  min-height: 33px;
+  transition: 0.5s;
 }
 @media (min-width: 1230px) {
-  header nav {
+  header div.ddContainer div.dropdown nav {
     margin-left: 0;
   }
 }
-header nav a {
+header div.ddContainer div.dropdown nav a {
   text-decoration: none;
   color: #ffffff;
   font-size: 1.5rem;
 }
-header nav a:hover {
+header div.ddContainer div.dropdown nav a:hover {
   text-decoration: underline;
 }
-header nav.clicked {
+header div.ddContainer div.dropdown nav.clicked {
   visibility: visible;
   opacity: 100;
+}
+header div.ddContainer div.dropdown nav.unclicked {
+  visibility: hidden;
+  opacity: 0;
+}
+header div.ddContainer.clicked {
+  animation-name: menuSlide;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+@keyframes menuSlide {
+  from {
+    transform: translate(-40px, 0);
+    background-color: transparent;
+    opacity: 0;
+  }
+  to {
+    transform: translate(0px, 0);
+    background-color: #101010;
+    opacity: 100;
+  }
+}
+header div.ddContainer.unclicked {
+  animation-name: menuSlideOut;
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+}
+@keyframes menuSlideOut {
+  from {
+    transform: translate(0px, 0);
+    background-color: #101010;
+    opacity: 100;
+  }
+  to {
+    transform: translate(-40px, 0);
+    background-color: transparent;
+    opacity: 0;
+  }
 }
 header {
   height: 100vh;
@@ -366,19 +388,12 @@ header nav,
 header section,
 header a,
 header p,
-header button {
+header button,
+header div {
   z-index: 1;
 }
 header button.CTAInvert {
   margin-bottom: 0;
-}
-header h1 {
-  margin-right: 14%;
-}
-@media (max-width: 615px) {
-  header h1 {
-    margin-right: 0;
-  }
 }
 header div,
 header section {
@@ -386,10 +401,35 @@ header section {
   max-width: 1000px;
 }
 header div.headerInfo {
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  flex-direction: column-reverse;
+  position: -webkit-sticky;
+  position: sticky;
+  top: -65px;
+}
+@media (min-width: 600px) {
+  header div.headerInfo {
+    margin-top: 60px;
+    align-items: baseline;
+    flex-direction: row;
+  }
+}
+header div.headerInfo h1 {
+  margin-bottom: 20px;
+}
+@media (min-width: 600px) {
+  header div.headerInfo h1 {
+    margin-right: 14%;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 615px) {
+  header div.headerInfo h1 {
+    margin-right: 0;
+  }
 }
 header p {
   width: 100%;
@@ -398,8 +438,16 @@ header p {
   padding-bottom: 0;
 }
 header div.buffer {
-  height: 17vh;
-  min-height: 50px;
+  height: 5vh;
+  min-height: 30px;
+  position: relative;
+  z-index: -1;
+}
+@media (min-width: 600px) {
+  header div.buffer {
+    height: 17vh;
+    min-height: 50px;
+  }
 }
 header section.intro {
   background-color: rgba(240, 240, 240, 0.8);

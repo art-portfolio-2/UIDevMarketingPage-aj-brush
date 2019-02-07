@@ -19,21 +19,14 @@ header {
   section,
   a,
   p,
-  button {
+  button,
+  div {
     z-index: 1;
   }
   button.CTAInvert {
     margin-bottom: 0;
   }
-  // Move header over to prevent image overlap
-  h1 {
-    margin-right: 14%;
 
-    // When img disappears, margin is no longer needed
-    @media @imgTR {
-      margin-right: 0;
-    }
-  }
   div,
   section {
     width: 100%;
@@ -41,8 +34,33 @@ header {
   }
   // div for: NAV elements + Logo
   div.headerInfo {
-    margin-top: 60px;
-    .flexAlign(space-between, baseline);
+    margin-top: 20px;
+    .flexAlign(space-between, center);
+    flex-direction: column-reverse;
+
+    // Allow nav menu to stick to top of screen
+    position: -webkit-sticky;
+    position: sticky;
+    top: -65px;
+
+    @media @tablet {
+      margin-top: 60px;
+      align-items: baseline;
+      flex-direction: row;
+    }
+
+    // Move title over to prevent image overlap
+    h1 {
+      margin-bottom: 20px;
+      // When img disappears, margin is no longer needed
+      @media @tablet {
+        margin-right: 14%;
+        margin-bottom: 0px;
+      }
+      @media @imgTR {
+        margin-right: 0;
+      }
+    }
   }
 
   // Opening text takes up most of the screen
@@ -59,8 +77,15 @@ header {
   }
   // Allow minimum margins instead of using a percent on <p>
   div.buffer {
-    height: 17vh;
-    min-height: 50px;
+    height: 5vh;
+    min-height: 30px;
+    position: relative;
+    z-index: -1;
+
+    @media @tablet {
+      height: 17vh;
+      min-height: 50px;
+    }
   }
   // Intro card info
   section.intro {
