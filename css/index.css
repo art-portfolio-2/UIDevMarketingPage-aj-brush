@@ -137,6 +137,7 @@ table {
 }
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 html,
 body {
@@ -162,10 +163,6 @@ p {
   line-height: 1.7;
   font-size: 1.6rem;
   padding-bottom: 10px;
-}
-img {
-  max-width: 100%;
-  height: auto;
 }
 .container {
   margin: 0 auto;
@@ -262,10 +259,15 @@ header div.menuBars {
   cursor: pointer;
   background-color: transparent;
   transition: 0.4s ease-in;
-  position: fixed;
+  position: absolute;
   left: 15px;
-  top: 60px;
+  top: 70px;
   z-index: 2;
+}
+@media (min-width: 600px) {
+  header div.menuBars {
+    top: 64px;
+  }
 }
 header div.menuBars .topBar,
 header div.menuBars .botBar,
@@ -276,7 +278,14 @@ header div.menuBars .midBar {
   margin: 6px 0;
   transition: 0.4s ease-in;
   overflow: visible;
-  z-index: 1;
+  z-index: 2;
+}
+@media (min-width: 1000px) {
+  header div.menuBars .topBar,
+  header div.menuBars .botBar,
+  header div.menuBars .midBar {
+    background-color: #ffffff;
+  }
 }
 header div.menuBars.clicked .topBar {
   -webkit-transform: rotate(45deg) translate(7px, 5px);
@@ -292,10 +301,17 @@ header div.menuBars.clicked .botBar {
   transform: rotate(-45deg) translate(7px, -6px);
   background-color: #ffffff;
 }
-header div.ddContainer {
-  position: fixed;
-  left: 0;
-  top: 60px;
+@media (min-width: 600px) {
+  header div.ddContainer {
+    width: 60%;
+  }
+}
+@media (min-width: 800px) {
+  header div.ddContainer {
+    position: absolute;
+    left: 0px;
+    top: 64px;
+  }
 }
 header div.ddContainer div.dropdown {
   display: flex;
@@ -304,6 +320,11 @@ header div.ddContainer div.dropdown {
   width: 100%;
   transition: 0.4s ease-in;
   background-color: transparent;
+}
+@media (min-width: 600px) {
+  header div.ddContainer div.dropdown {
+    width: 100%;
+  }
 }
 header div.ddContainer div.dropdown nav {
   display: flex;
@@ -383,15 +404,6 @@ header {
   align-items: center;
   flex-direction: column;
 }
-header h1,
-header nav,
-header section,
-header a,
-header p,
-header button,
-header div {
-  z-index: 1;
-}
 header button.CTAInvert {
   margin-bottom: 0;
 }
@@ -406,15 +418,17 @@ header div.headerInfo {
   justify-content: space-between;
   align-items: center;
   flex-direction: column-reverse;
-  position: -webkit-sticky;
-  position: sticky;
-  top: -65px;
 }
 @media (min-width: 600px) {
   header div.headerInfo {
     margin-top: 60px;
     align-items: baseline;
     flex-direction: row;
+  }
+}
+@media (min-width: 800px) {
+  header div.headerInfo {
+    justify-content: flex-end;
   }
 }
 header div.headerInfo h1 {
@@ -500,6 +514,15 @@ header img.bottom_right {
   min-width: 450px;
   max-width: 700px;
 }
+header h1,
+header nav,
+header section,
+header a,
+header p,
+header button,
+header div {
+  z-index: 1;
+}
 .landing main section.services {
   display: flex;
   justify-content: space-evenly;
@@ -523,6 +546,9 @@ header img.bottom_right {
   .landing main section.services div.service {
     margin: 30px 5px 0 5px;
   }
+}
+.landing main section.services div.service img {
+  max-width: 100px;
 }
 .landing main section.ourTeam .teamContainer {
   display: flex;
@@ -570,6 +596,47 @@ header img.bottom_right {
 .landing main section.ourTeam .teamContainer div.teamMember:hover div {
   visibility: visible;
   opacity: 100;
+}
+.landing main section.outro {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background-color: #1d1d1d;
+  color: #ffffff;
+}
+.landing main section.outro h2,
+.landing main section.outro button {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+@media (min-width: 800px) {
+  .landing main section.outro h2,
+  .landing main section.outro button {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+@media (min-width: 1100px) {
+  .landing main section.outro h2,
+  .landing main section.outro button {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.landing main section.outro div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 1000px;
+  min-height: 200px;
+  margin: 0 auto;
+}
+@media (min-width: 800px) {
+  .landing main section.outro div {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
 footer {
   background-color: #aa9f91;

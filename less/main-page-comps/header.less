@@ -2,31 +2,22 @@
 @p_img_overlap: ~"(min-width: 615px)";
 @imgBRMed: ~"(max-width: 745px)";
 @imgBRSm: @imgTR;
+
 header {
   height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
   min-height: 500px;
+  // Slight gradient to match original photo
   background-image: linear-gradient(#f4ecea, #f3ebe9);
   text-align: center;
   .flexAlign(flex-start);
   flex-direction: column;
 
-  // Put content elements above images
-  h1,
-  nav,
-  section,
-  a,
-  p,
-  button,
-  div {
-    z-index: 1;
-  }
   button.CTAInvert {
     margin-bottom: 0;
   }
-
   div,
   section {
     width: 100%;
@@ -35,13 +26,8 @@ header {
   // div for: NAV elements + Logo
   div.headerInfo {
     margin-top: 20px;
-    .flexAlign(space-between, center);
+    .flexAlign(space-between);
     flex-direction: column-reverse;
-
-    // Allow nav menu to stick to top of screen
-    position: -webkit-sticky;
-    position: sticky;
-    top: -65px;
 
     @media @tablet {
       margin-top: 60px;
@@ -49,10 +35,12 @@ header {
       flex-direction: row;
     }
 
+    @media @desktop {
+      justify-content: flex-end;
+    }
     // Move title over to prevent image overlap
     h1 {
-      margin-bottom: 20px;
-      // When img disappears, margin is no longer needed
+      margin-bottom: 20px; // When img disappears, margin is no longer needed
       @media @tablet {
         margin-right: 14%;
         margin-bottom: 0px;
@@ -62,18 +50,12 @@ header {
       }
     }
   }
-
   // Opening text takes up most of the screen
   p {
     width: 100%;
     margin: auto;
     margin-bottom: 3%;
     padding-bottom: 0;
-
-    // Except at large screen sizes so it doesn't overlap with the images
-    // @media @p_img_overlap {
-    //   width: 60%;
-    // }
   }
   // Allow minimum margins instead of using a percent on <p>
   div.buffer {
@@ -81,7 +63,6 @@ header {
     min-height: 30px;
     position: relative;
     z-index: -1;
-
     @media @tablet {
       height: 17vh;
       min-height: 50px;
@@ -97,12 +78,10 @@ header {
     .flexAlign;
     flex-direction: column;
     min-height: 350px;
-
     h2 {
       margin: 0 0 30px;
     }
   }
-
   // Background Images
   img.top_left {
     position: absolute;
@@ -126,7 +105,6 @@ header {
     width: 20%;
     min-width: 150px;
     max-width: 300px;
-
     @media @imgTR {
       display: none;
     }
@@ -138,7 +116,6 @@ header {
     width: 50%;
     min-width: 450px;
     max-width: 700px;
-
     // Handle bottom right image at small screen heights
     // @media (max-height: 600px) {
     //   @media @imgBRMed {
@@ -148,12 +125,22 @@ header {
     //     bottom: -170px;
     //   }
     // }
-
     // Handle bottom right image at medium screen heights
     // @media (min-height: 616px) and (max-height: 800px) {
     //   @media (max-width: 615px) {
     //     bottom: -90px;
     //   }
     // }
+  }
+
+  // Put content elements above images
+  h1,
+  nav,
+  section,
+  a,
+  p,
+  button,
+  div {
+    z-index: 1;
   }
 } // header
