@@ -1,0 +1,133 @@
+@tranTime: 0.4s ease-in;
+@navTL: ~"(min-width: 1230px)";
+
+header {
+  // Animate
+  div.menuBars {
+    width: 55px;
+    display: inline-block;
+    margin-left: 21px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: @tranTime;
+    position: absolute;
+    left: 15px;
+    top: 70px;
+    z-index: 2;
+
+    @media @tablet {
+      top: 64px;
+    }
+
+    .topBar,
+    .botBar,
+    .midBar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: @tranTime;
+      overflow: visible;
+      z-index: 2;
+
+      @media (min-width: 1000px) {
+        background-color: @mainWhite;
+      }
+    }
+  } // div.menuBars
+  div.menuBars.clicked {
+    .topBar {
+      -webkit-transform: rotate(45deg) translate(7px, 5px);
+      transform: rotate(45deg) translate(7px, 5px);
+      background-color: @mainWhite;
+    }
+    .midBar {
+      transform: translate(-15px, 0);
+      opacity: 0;
+    }
+    .botBar {
+      -webkit-transform: rotate(-45deg) translate(7px, -6px);
+      transform: rotate(-45deg) translate(7px, -6px);
+      background-color: @mainWhite;
+    }
+  }
+  div.ddContainer {
+    // Leave room for logo at tablet+ sizes
+    @media @tablet {
+      width: 60%;
+    }
+    @media @desktop {
+      position: absolute;
+      left: 0px;
+      top: 64px;
+    }
+
+    div.dropdown {
+      .flexAlign(center);
+      width: 100%;
+      // min-width: 300px;  Move to higher res
+      transition: @tranTime;
+      background-color: transparent;
+
+      @media @tablet {
+        width: 100%;
+      }
+
+      nav {
+        .flexAlign(space-around);
+        visibility: hidden;
+        width: 75%;
+        max-width: 400px;
+        min-height: 33px;
+        transition: 0.5s;
+
+        @media @navTL {
+          margin-left: 0;
+        }
+
+        a {
+          text-decoration: none;
+          color: @mainWhite;
+          font-size: 1.5rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        } // a
+      } // nav
+      nav.clicked {
+        visibility: visible;
+        opacity: 100;
+      }
+      nav.unclicked {
+        visibility: hidden;
+        opacity: 0;
+      }
+    } // div.dropdown
+  } // div.ddContainer
+  div.ddContainer.clicked {
+    .animateMenu(menuSlide);
+  }
+  // .animateMenu(@name, @startOpacity: 0, @endOpacity: 100, @startX: -40px, @endX: 0px, @bgStart: transparent, @bgEnd:@mainBlack)
+  div.ddContainer.unclicked {
+    .animateMenu(menuSlideOut, 100, 0, 0px, -40px, @mainBlack, transparent);
+  }
+} // header
+
+// Turn hamburger into an arrow
+// .clicked .topBar {
+//   -webkit-transform: rotate(45deg) translate(-6px, 5px);
+//   transform: rotate(45deg) translate(-6px, 5px);
+// }
+//
+
+// .clicked .midBar {
+//   -webkit-transform: translate(-27px, 0px);
+//   transform: scaleX(1.5) translate(-27px, 0px);
+// }
+//
+
+// .clicked .botBar {
+//   -webkit-transform: rotate(-45deg) translate(-6px, -5px);
+//   transform: rotate(-45deg) translate(-6px, -5px);
+// }

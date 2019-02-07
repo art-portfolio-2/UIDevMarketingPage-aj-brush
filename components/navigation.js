@@ -5,7 +5,7 @@ class CreateNavLink {
     this.target = data.target;
   }
 
-  createDomElements() {
+  getElements() {
     let anchor = document.createElement("a");
     anchor.href = this.href;
     if (this.target) anchor.target = this.target;
@@ -15,17 +15,27 @@ class CreateNavLink {
   }
 }
 const navJSON = [
-  { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false },
-  { href: "#", textNode: "About", target: false }
+  { href: "#home", textNode: "Home", target: false },
+  { href: "#about", textNode: "About", target: false },
+  { href: "#ourTeam", textNode: "Our Team", target: false },
+  {
+    href: "https://artfolio-ea.netlify.com/",
+    textNode: "Get Started",
+    target: false
+  }
 ];
 
 const navElements = document.querySelectorAll("nav");
 const navLinks = navJSON.map(elementData => new CreateNavLink(elementData));
 
 navElements.forEach(element =>
-  navLinks.forEach(link => {
-    element.appendChild(link.createDomElements());
+  navLinks.forEach((link, i) => {
+    // If the links are at the top of the page, skip "home"
+    if (
+      (element.parentNode.classList.contains("dropdown") && i !== 0) ||
+      !element.parentNode.classList.contains("dropdown")
+    ) {
+      element.appendChild(link.getElements());
+    }
   })
 );

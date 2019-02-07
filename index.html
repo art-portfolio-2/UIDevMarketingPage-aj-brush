@@ -4,28 +4,46 @@
   <head>
     <title>artFolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- JavaScript Components -->
     <script src="./components/navigation.js" defer></script>
     <script src="./components/services.js" defer></script>
-    <script src="./buttons.js" defer></script>
+    <script src="./components/teamMO.js" defer></script>
+
+    <!-- JavaScript Scripts -->
+    <script src="./js/buttons.js" defer></script>
+    <script src="./js/animateMenuClick.js" defer></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
   </head>
   <body>
     <div class="container landing">
+      <a href="#home"><img class="toTop" src="./img/icons/upArrow.svg"/></a>
       <!-- Header info:  nav links, start now button -->
       <header>
         <div class="headerInfo">
-          <nav></nav>
-          <h1>artFolio</h1>
+          <div class="menuBars">
+            <div class="topBar"></div>
+            <div class="midBar"></div>
+            <div class="botBar"></div>
+          </div>
+          <div class="ddContainer">
+            <div class="dropdown"><nav></nav></div>
+            <!-- <div class="menuArrow"></div> -->
+          </div>
+          <h1 id="home">artFolio</h1>
         </div>
         <div class="buffer"></div>
         <section class="intro">
           <!-- Critical app info, displayed at top of page -->
           <h2>your portfolio. your art. simplified.</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut neque
-            quae a odit ipsum placeat quam tenetur, repellat laboriosam aperiam
-            unde doloremque amet ab itaque, sunt consequuntur quod ducimus,
-            earum.
+            We've simplified the process of getting your art out to your fans!
+            Spend your time doing what you love and let us handle the
+            presentation side of it for you. Create an account and upload your
+            work to get started! When you've got something new to show, create a
+            new post and put it where you want it.
           </p>
           <button class="CTAInvert">get started with artFolio</button>
         </section>
@@ -49,22 +67,22 @@
 
       <main>
         <!-- Basic how-to-use App info -->
-        <section class="about">
+        <section class="about" id="about">
           <div class="aboutHeader">
             <h2>
-              Experimentation meaning handmade brutal consumerism abstract
-              sexual identity estrangement.
+              What is artFolio?<br /><br />
+              Built from the ground up for simplicity.
             </h2>
             <button class="CTAInvert">get started with artFolio</button>
           </div>
           <div class="aboutText">
             <p>
-              Real illusion cliché transcend spirit societal objectify seeing.
-              Heritage discord Fluxus supernatural Marina Abramovic superstition
-              street art viewpoint reclaimed materials. Dialogue expressive
-              interactive model environment natural world site. Re-imagined
-              transgress boundaries illusion urban feminine power sexist medium
-              surrealism patriarchal gaze.
+              artFolio is a webapp built for those who have a talent or passion
+              they want to showcase but lack the skill or time for website
+              development. We've built our app to be simple enough that no
+              matter your skill level with technology, you'll have your
+              portfolio up and running in minutes! If you do run into any
+              troubles, we're here to help, just let us know where you're stuck!
             </p>
           </div>
         </section>
@@ -72,20 +90,20 @@
         <!-- Display App w/ Mouseovers Sample Images -->
         <section class="exampleIMGs">
           <img
-            src="http://blaze.edge-themes.com/wp-content/uploads/2017/08/port-h2-image1-150x150.jpg"
-            alt=""
+            src="./img/examples/example1.png"
+            alt="Example image of using artFolio"
           />
           <img
-            src="http://blaze.edge-themes.com/wp-content/uploads/2017/08/port-h2-image1-150x150.jpg"
-            alt=""
+            src="./img/examples/example1.png"
+            alt="Example image of using artFolio"
           />
           <img
-            src="http://blaze.edge-themes.com/wp-content/uploads/2017/08/port-h2-image1-150x150.jpg"
-            alt=""
+            src="./img/examples/example1.png"
+            alt="Example image of using artFolio"
           />
           <img
-            src="http://blaze.edge-themes.com/wp-content/uploads/2017/08/port-h2-image1-150x150.jpg"
-            alt=""
+            src="./img/examples/example1.png"
+            alt="Example image of using artFolio"
           />
         </section>
 
@@ -93,18 +111,15 @@
         <section class="services"></section>
 
         <!-- Showcase the build team -->
-        <section class="ourTeam">
+        <section class="ourTeam" id="ourTeam">
           <h2>meet our team</h2>
-          <img src="https://i.imgur.com/c08ygf4.png" alt="Andrew Brush" />
-          <img src="https://i.imgur.com/oZJwcPM.png" alt="Ilya Yelizarov" />
-          <img src="https://i.imgur.com/TI3sgCQ.png" alt="Jon Palacio" />
-          <img src="https://i.imgur.com/tGRSl0Y.png" alt="Csilla Gates" />
-          <img src="https://i.imgur.com/lCCytdU.png" alt="Elisha Atulomah" />
-          <img src="https://i.imgur.com/jqvbxYA.png" alt="Javontay McElroy" />
+          <div class="teamContainer"></div>
         </section>
 
         <!-- Contact Form -->
-        <section class="contact">
+
+        <!--
+          <section class="contact">
           <h2>have any questions or concerns, let us know here</h2>
           <form action="">
             <p>your name</p>
@@ -115,9 +130,12 @@
             <input type="text" />
             <button type="submit" class="CTAInvert">send your message</button>
           </form>
-          <!-- Some kind of img next to the form? -->
+        -->
+        <!-- Some kind of img next to the form? -->
+        <!--
           <img src="" alt="" />
-        </section>
+          </section>
+        -->
 
         <!-- Outro CTA -->
         <section class="outro">

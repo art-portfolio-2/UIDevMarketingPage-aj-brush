@@ -21,3 +21,23 @@
     color: @fontColor;
   }
 }
+
+.animateMenu(@name, @startOpacity: 0, @endOpacity: 100, @startX: -40px, @endX: 0px, @bgStart: transparent, @bgEnd:@mainBlack) {
+  animation-name: @name;
+  animation-duration: 0.4s;
+  //animation-timing-function: ease-out;
+  animation-fill-mode: both;
+
+  @keyframes @name {
+    from {
+      transform: translate(@startX, 0);
+      background-color: @bgStart;
+      opacity: @startOpacity;
+    }
+    to {
+      transform: translate(@endX, 0);
+      background-color: @bgEnd;
+      opacity: @endOpacity;
+    }
+  } // @keyframes
+}
